@@ -6,6 +6,7 @@ import { DatabaseService } from "../database.service";
   templateUrl: "./actor.component.html",
   styleUrls: ["./actor.component.css"],
 })
+
 export class ActorComponent implements OnInit {
   actorsDB: any[] = [];
 
@@ -23,6 +24,7 @@ export class ActorComponent implements OnInit {
       this.actorsDB = data;
     });
   }
+
   //Create a new Actor, POST request
   onSaveActor() {
     let obj = { name: this.fullName, bYear: this.bYear };
@@ -30,12 +32,14 @@ export class ActorComponent implements OnInit {
       this.onGetActors();
     });
   }
+
   // Update an Actor
   onSelectUpdate(item) {
     this.fullName = item.name;
     this.bYear = item.bYear;
     this.actorId = item._id;
   }
+
   onUpdateActor() {
     let obj = { name: this.fullName, bYear: this.bYear };
     this.dbService.updateActor(this.actorId, obj).subscribe(result => {
@@ -49,6 +53,7 @@ export class ActorComponent implements OnInit {
       this.onGetActors();
     });
   }
+
   // This lifecycle callback function will be invoked with the component get initialized by Angular.
   ngOnInit() {
     this.onGetActors();

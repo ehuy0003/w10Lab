@@ -12,7 +12,7 @@ const app = express();
 
 app.use("/",express.static(path.join(__dirname, "dist/movieAng"))); 
 
-app.listen(8000);
+app.listen(8080);
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
